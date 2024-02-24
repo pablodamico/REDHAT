@@ -73,7 +73,14 @@ $ sudo systemctl enable auditd
 
 The management of these files will be explained later, but I believe it is important at this point to know and to check them to start being familiar with them and where they are located.
 
+#### To summarize:
 
+| Files and folders        | to remember                     | 
+|---------------------------------------------------|
+| /etc/audit/auditd.conf   | Auditd configuration file, where we will configure differnt options like log sizes, logs file location, etc  |
+| /etc/audit/auditd.rules  | Rules condiguration file, where we will add rules to persiste them over reboots, here we will save the rules about what we want to audit |
+| /etc/audit/rules.d       | In this folder we will save rules as well, with the same purpose of the previous file. |
+| /var/log/audit/audit.log | Default place where audit logs are stored |
 
 
 
