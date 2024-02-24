@@ -51,11 +51,31 @@ $ sudo systemctl start auditd
 $ sudo systemctl restart auditd
 $ sudo systemctl enable auditd
 
-To summarize:
+#### To summarize:
+
 | OS Family           | Commands                          | 
 |-----------|----------------------------------|
 | Red HAT   | $ sudo service auditd start<br>$ sudo service auditd restart<br>$ sudo systemctl enable auditd |
 | Debian    | $ sudo systemctl start auditd<br>$ sudo systemctl restart auditd<br>$ sudo systemctl enable auditd |
+
+
+### Auditd configuration and logs files
+
+Auditd has 2 main configuration files:
+
+/etc/audit/auditd.conf
+/etc/audit/auditd.rules
+
+The logs files are stored by default in:
+
+/var/log/audt/audit.log
+
+It's worth to mention that we can also store our rules in:
+
+/etc/audit/rules.d/
+
+The management of these files will be explained later, but I believe it is important at this point to know and to check them to start being familiar with them and where they are located.
+
 
 
 
