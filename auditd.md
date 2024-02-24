@@ -75,8 +75,8 @@ The management of these files will be explained later, but I believe it is impor
 
 #### To summarize:
 
-| Files and folders        | to remember                     | 
-|---------------------------------------------------|
+| Files and folders        | Description                     |
+|--------------------------|------------------------|
 | /etc/audit/auditd.conf   | Auditd configuration file, where we will configure differnt options like log sizes, logs file location, etc  |
 | /etc/audit/auditd.rules  | Rules condiguration file, where we will add rules to persiste them over reboots, here we will save the rules about what we want to audit |
 | /etc/audit/rules.d       | In this folder we will save rules as well, with the same purpose of the previous file. |
