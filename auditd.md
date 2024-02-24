@@ -177,11 +177,11 @@ Later, we will use the key with another command, that is specifically created to
 
 **Example 2**
 
-We would like to audit each time a user tries to read the file /secret-files/example2.txt
-For this case, we will set the owner and group to the user and group pablo.
-Once the file is created, we we will set the rule to monitor read access to the file.
-Then we will cat the file by the user pablo, who will be able to read it and then we will try to do it with the user bob, who has no access to read it.
-Then we will check the logs to verify that the action from both were logged, even when bob got access denied.
+We would like to audit each time a user tries to read the file /secret-files/example2.txt  
+For this case, we will set the owner and group to the user and group pablo.  
+Once the file is created, we we will set the rule to monitor read access to the file.  
+Then we will cat the file by the user pablo, who will be able to read it and then we will try to do it with the user bob, who has no access to read it.  
+Then we will check the logs to verify that the action from both were logged, even when bob got access denied.  
 
 ```
 [pablo@fedora private]$ sudo sh -c "echo 'This file can only be read by pablo user and group' > /secret-files/example2.txt"
@@ -213,9 +213,9 @@ type=SYSCALL msg=audit(1708800305.717:5323): arch=c000003e syscall=257 success=y
 type=SYSCALL msg=audit(1708800357.766:5334): arch=c000003e syscall=257 success=no exit=-13 a0=ffffff9c a1=7ffcab351636 a2=0 a3=0 items=1 ppid=688389 pid=688434 auid=1000 uid=1001 gid=1001 euid=1001 suid=1001 fsuid=1001 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=3 comm="cat" exe="/usr/bin/cat" subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 key="read_example2.txt"ARCH=x86_64 SYSCALL=openat AUID="pablo" UID="bob" GID="bob" EUID="bob" SUID="bob" FSUID="bob" EGID="bob" SGID="bob" FSGID="bob"
 ```
 
-As you can see in the logs, we have 3 entries, 1 when we created the rule, the second when the user pablo did a cat to the file and the third when bob tried to do it.
-If you are curious in the log entry why you have AUID="pablo" UID="bob, this is because "The auid field records the Audit user ID, that is the loginuid. This ID is assigned to a user upon login and is inherited by every process even when the user's identity changes, for example, by switching user accounts with the su - john command." as explained in the following Red Hat document: [Red Hat Documentation](https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/7/html/security_guide/sec-understanding_audit_log_files)
-
+As you can see in the logs, we have 3 entries, 1 when we created the rule, the second when the user pablo did a cat to the file and the third when bob tried to do it.  
+If you are curious in the log entry why you have AUID="pablo" UID="bob, this is because "The auid field records the Audit user ID, that is the loginuid. This ID is assigned to a user upon login and is inherited by every process even when the user's identity changes, for example, by switching user accounts with the su - john command." as explained in the following Red Hat document: [Red Hat Documentation](https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/7/html/security_guide/sec-understanding_audit_log_files)  
+<br>
 Later we will have a lecture to understand audit logs files.
 
 
