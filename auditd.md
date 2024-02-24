@@ -22,6 +22,7 @@ Installing auditd service in Debian Family systems: (not for the exam but worth 
 | Installing auditd service on                           |
 | ------------------------------------------------------ |
 | OS Family           | Command                          | 
+| ------------------------------------------------------ |
 | Red Hat             | $ sudo dnf install auditd        |
 | Debian              | $ sudo apt install auditd        |
 
