@@ -1,3 +1,5 @@
+# Auditd
+
 Auditd will let us between other things:
 
 - Track access to files, being able to diferentiate between the different possitble access types (read, write, exectue and attribute changes)
@@ -7,7 +9,7 @@ Auditd will let us between other things:
 It's important to remember that auditd works at Kernel level, making it harder to possible attackers.
 
 
-Auditd service install and management
+## Auditd service install and management
 
 In Red Hat family distributions, like Centos and AlamaLinux between others, it comes pre installed, however, in Debian family ones, you may need to install it manually.
 
@@ -19,7 +21,7 @@ Installing auditd service in Debian Family systems: (not for the exam but worth 
 
 - sudo apt install auditd
 
-Installing auditd service on                           
+### Installing auditd service on                           
 
 | OS Family           | Command                          | 
 | ------------------- | -------------------------------- |
