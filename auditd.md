@@ -61,7 +61,7 @@ $ sudo systemctl enable auditd
 
 ### Auditd configuration and logs files
 
-- Auditd has 2 main configuration files:  
+- Auditd has 2 main configuration files:
    * /etc/audit/auditd.conf  
    * /etc/audit/auditd.rules  
      
