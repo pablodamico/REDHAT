@@ -83,4 +83,66 @@ The management of these files will be explained later, but I believe it is impor
 | /var/log/audit/audit.log | Default place where audit logs are stored |
 
 
+### Auditd rules
+
+In the previous section, we mentioned 2 files, where we will store the rules about what we want to audit. In this section, I will explain what are the audit rules, what kind of audit rules we have. 
+
+#### What is an audit rule?
+
+An audit rule is a directive, that has a defined format, that we will used to specify what events we would like to montior and log by auditd, like auditing access to a file, auditing system calls, login attempts, etc.
+
+#### Introduction of auditctl command
+
+Before continuing with rules, I will introduce auditcl, as it is a command that will allow us to create ***non persistent*** auditd rules, that is, these rules won't persist after reboot.
+
+It is very important to remember that ***rules created using auditctl will not be persistent***, as perisisting rules is what is required for the exam, however, auditctl will let us test rules before persisting them, which we will learning latter.
+
+The basic usage of auditctl that we will need for now are:
+
+$ auditctl <rule> ---> to create a non persistent rule
+$ audictl -l      ---> to list the rules currently being applied
+
+There are other uses that we will be discovering while we move forward.
+
+#### Creating rules to audit files and folders
+
+To audit files and directory access, incluiding read, write, execute and attribute change access we need to define a watch rule.
+
+Watch rules follow the next pattern:
+
+-w <path_to_file_or_directory> -p <permissions> -k <key_name>
+
+Now lets break it down:
+
+-w: to specify the path of the file or directory you would like to watch
+-p: to specify the the permissions you would like to watch (r=read w=write x=execute a=modify attributes)
+-k: to specify the key, which is just a string you define to easily identify the logged entries associated with this rule.
+
+In the case of permissions, just add the letters corresponding to the permissions you would like to monitor (rwxa), with no spaces, for exmple, if you want to audit read and write opperations on the file, your permissions would be rw.
+
+Example 1:
+  Let's supose that we would like to monitor access to the file /secret-files/example1.txt and that we would like to monitor who tries to read and write it.
+
+  To build the rule, following the pattern explained before:
+   
+    -w <path_to_file_or_directory> -p <permissiones> -k <key_name>
+   
+    -w /secret-files/example1.txt -p rw -k rw_example1.txt
+
+  Now our rule is there, but, how do we apply it?
+
+  For now, we will use auditctl to create the rule, later, I will show how to persist the rules.
+
+```
+  $ sudo auditctl -w /secret-files/example1.txt -p rw -k rw_example1.tx
+```
+  
+```
+$ sudo auditctl -l
+-w /secret-files/example1.txt -p rw -k rw_example1.tx
+```
+
+
+
+
 
