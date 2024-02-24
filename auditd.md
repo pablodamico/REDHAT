@@ -31,9 +31,32 @@ Installing auditd service in Debian Family systems: (not for the exam but worth 
 
 ### Managing auditd service
 
-In Red Hat family OS, the service should be started and restarted via the old service command:
+#### Red Hat family OS
 
+The service should be started and restarted via the old service command:
 $ sudo service auditd start
 $ sudo service auditd restart
 
 This is not done via systemd as this will record a user ID value properly as explained in the [Red Hat Documentation](https://www.redhat.com/sysadmin/configure-linux-auditing-auditd)
+
+
+To enable the service you can use the systemctl commands:
+$ systemctl enable auditd
+
+
+#### Ubuntu Family
+
+In the Ubuntu Family, you can do everything using systemctl commands:
+$ sudo systemctl start auditd
+$ sudo systemctl restart auditd
+$ sudo systemctl enable auditd
+
+To summarize:
+| OS Family           | Commands                          | 
+|-----------|----------------------------------|
+| Red HAT   | $ sudo service auditd start<br>$ sudo service auditd restart<br>$ sudo systemctl enable auditd |
+| Debian    | $ sudo systemctl start auditd<br>$ sudo systemctl restart auditd<br>$ sudo systemctl enable auditd |
+
+
+
+
