@@ -61,16 +61,16 @@ $ sudo systemctl enable auditd
 
 ### Auditd configuration and logs files
 
-Auditd has 2 main configuration files:
+* Auditd has 2 main configuration files:
 
 /etc/audit/auditd.conf
 /etc/audit/auditd.rules
 
-The logs files are stored by default in:
+* The logs files are stored by default in:
 
 /var/log/audt/audit.log
 
-It's worth to mention that we can also store our rules in:
+* It's worth to mention that we can also store our rules in:
 
 /etc/audit/rules.d/
 
